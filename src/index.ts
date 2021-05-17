@@ -6,9 +6,8 @@
  * mutable variable (`el`) which will be assigned a method of referencing the
  * HTML element based on the value of `method`. If the variable `el` is `null`
  * or `undefined`, throw a `TypeError`, else check if `el` is an `object`, if it
- * is, check the length. If `el` is an object and the ength of `el` is less
- * than or equal to `1`, throw a `TypeError`. If no errors have been thrown,
- * simply return `el`.
+ * is, check the length. If `el` is an object and the ength of `el` is equal to
+ * zero, throw a `TypeError`. If no errors have been thrown, simply return `el`.
  *
  * @param element - Element to be referenced
  * @param method - The method of referencing the element (id|tag|name|class)
@@ -44,7 +43,11 @@ const getElement = (
       el = document.getElementsByClassName(element)
       break
     default:
-      el = document.querySelector(element)
+      element[0] === '#'
+        ? (el = document.getElementById(element))
+        : element[0] === '.'
+        ? (el = document.getElementsByClassName(element))
+        : (el = document.querySelector(element))
   }
   if (el === null || el === undefined) {
     throw new TypeError(`${name || 'Element'} is ${el}`)

@@ -15,6 +15,7 @@
     "semi": "off",
     "valid-jsdoc": "off",
     "comma-dangle": "off",
-    "indent": "off"
+    "indent": "off",
+    "operator-linebreak": "off"
   }
 }

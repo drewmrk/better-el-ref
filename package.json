@@ -4,6 +4,8 @@
   "description": "A better way to reference HTML elements in JavaScript.",
   "main": "lib/index.js",
   "author": "Drew Markel",
+  "homepage": "https://github.com/drewmrk/better-el-ref",
+  "repository": "https://github.com/drewmrk/better-el-ref",
   "type": "module",
   "license": "MIT",
   "keywords": [

@@ -6,6 +6,13 @@
   "author": "Drew Markel",
   "type": "module",
   "license": "MIT",
+  "keywords": [
+    "html",
+    "typescript",
+    "ref",
+    "element",
+    "document"
+  ],
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",

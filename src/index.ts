@@ -29,13 +29,7 @@ const getElement = (
   method?: 'id' | 'tag' | 'name' | 'class',
   name?: string
 ) => {
-  let el:
-    | HTMLElement
-    | HTMLCollectionOf<Element>
-    | NodeListOf<HTMLElement>
-    | Element
-    | null
-    | undefined
+  let el: any
   switch (method) {
     case 'id':
       el = document.getElementById(element)

@@ -1,0 +1,20 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "extends": ["google"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "ignorePatterns": ["node_modules", "lib"],
+  "rules": {
+    "semi": "off",
+    "valid-jsdoc": "off",
+    "comma-dangle": "off",
+    "indent": "off"
+  }
+}

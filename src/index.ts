@@ -1,13 +1,5 @@
 /**
- * getElement(): A better way to reference HTML elements (better-el-ref)
- *
- * @remarks
- * Setup three function parameters, `element`, `method`, and `name`. Create a
- * mutable variable (`el`) which will be assigned a method of referencing the
- * HTML element based on the value of `method`. If the variable `el` is `null`
- * or `undefined`, throw a `TypeError`, else check if `el` is an `object`, if it
- * is, check the length. If `el` is an object and the ength of `el` is equal to
- * zero, throw a `TypeError`. If no errors have been thrown, simply return `el`.
+ * A better way to reference HTML elements (better-el-ref)
  *
  * @param element - Element to be referenced
  * @param method - The method of referencing the element (id|tag|name|class)

@@ -20,32 +20,53 @@ const getElement = (
   method?: 'id' | 'tag' | 'name' | 'class',
   name?: string
 ) => {
+  const elementType = element[0]
+  !method && (element = element.substr(1))
+
+  const methods = {
+    id: document.getElementById(element),
+    className: document.getElementsByClassName(element),
+    tag: document.getElementsByTagName(element),
+    name: document.getElementsByName(element)
+  }
+
   let el: any
   switch (method) {
     case 'id':
-      el = document.getElementById(element)
-      break
-    case 'tag':
-      el = document.getElementsByTagName(element)
-      break
-    case 'name':
-      el = document.getElementsByName(element)
+      el = methods.id
       break
     case 'class':
-      el = document.getElementsByClassName(element)
+      el = methods.className
+      break
+    case 'tag':
+      el = methods.tag
+      break
+    case 'name':
+      el = methods.name
       break
     default:
-      element[0] === '#'
-        ? (el = document.getElementById(element))
-        : element[0] === '.'
-        ? (el = document.getElementsByClassName(element))
-        : (el = document.querySelector(element))
+      switch (elementType) {
+        case '#':
+          el = methods.id
+          break
+        case '.':
+          el = methods.className
+          break
+        case '<':
+          el = methods.tag
+          break
+        case '$':
+          el = methods.name
+          break
+        default:
+          document.querySelector(element)
+      }
   }
   if (el === null || el === undefined) {
     throw new TypeError(`${name || 'Element'} is ${el}`)
   } else {
-    if (el instanceof Object) {
-      if (Object(el).length === 0) {
+    if (el instanceof HTMLCollection || el instanceof NodeList) {
+      if (el.length === 0) {
         throw new TypeError(`${name || 'Element'} is empty`)
       }
     }

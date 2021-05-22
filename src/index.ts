@@ -30,7 +30,12 @@ const getElement = (
     name: document.getElementsByName(element)
   }
 
-  let el: any
+  let el:
+    | HTMLElement
+    | HTMLCollectionOf<Element>
+    | NodeListOf<Element>
+    | null
+    | undefined
   switch (method) {
     case 'id':
       el = methods.id

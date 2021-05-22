@@ -1,9 +1,9 @@
-import getElement from '../src'
+import getElement from '../../src'
 
 const test = document.createElement('p')
-test.setAttribute('id', 'test')
+test.setAttribute('class', 'test')
 document.body.appendChild(test)
 
 it('should return p element with id of "test"', () => {
-  getElement('#test').innerText = 'Test'
+  getElement('test', 'class').innerText = 'Test'
 })

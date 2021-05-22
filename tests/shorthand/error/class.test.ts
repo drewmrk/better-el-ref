@@ -1,8 +1,8 @@
-import getElement from '../src'
+import getElement from '../../../src'
 
 it('should throw TypeError', () => {
   try {
-    getElement('test', 'id').innerText = 'Test'
+    getElement('.test').innerText = 'Test'
     console.error('Test failed')
   } catch (_) {
     return undefined

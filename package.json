@@ -28,7 +28,7 @@
     "typescript": "4.2.4"
   },
   "scripts": {
-    "build": "jest && clean && tsc && prettier --write \"lib/*.js\" \"lib/*.ts\"",
+    "build": "yarn clean && jest && tsc && prettier --write \"lib/*.js\" \"lib/*.ts\"",
     "format": "prettier --write \"src/*.ts\" \"tests/*.ts\"",
     "clean": "rm -rf lib",
     "test": "jest"

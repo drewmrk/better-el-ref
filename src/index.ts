@@ -8,10 +8,6 @@
  * @returns HTML element
  *
  * @example
- * // index.html
- * <p id="test-element">Test</p>
- *
- * // index.js
  * import getElement from 'better-el-ref'
  * getElement('test-element', 'id', 'Paragraph test element')
  */

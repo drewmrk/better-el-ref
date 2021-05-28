@@ -15,11 +15,8 @@
     "element",
     "document"
   ],
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "jsdom"
-  },
   "devDependencies": {
+    "@babel/preset-env": "^7.14.4",
     "@types/jest": "26.0.23",
     "@typescript-eslint/eslint-plugin": "4.25.0",
     "@typescript-eslint/parser": "4.25.0",
@@ -27,13 +24,15 @@
     "eslint-config-google": "0.14.0",
     "jest": "27.0.1",
     "prettier": "2.3.0",
+    "terser": "^5.7.0",
     "ts-jest": "27.0.1",
     "ts-node": "10.0.0",
     "typescript": "4.3.2"
   },
   "scripts": {
-    "build": "yarn clean && jest && tsc && prettier --write \"lib/*.js\" \"lib/*.ts\"",
+    "build": "yarn clean && tsc && yarn minify && jest",
     "format": "prettier --write \"src/*.ts\" \"tests/*.ts\"",
+    "minify": "terser lib/index.js --mangle --compress -o lib/index.js",
     "clean": "rm -rf lib",
     "test": "jest"
   },

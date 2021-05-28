@@ -1,4 +1,4 @@
-import getElement from '../../src'
+import getElement from '../../lib'
 
 const test = document.createElement('input')
 test.name = 'test'

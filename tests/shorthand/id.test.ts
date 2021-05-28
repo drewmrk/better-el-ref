@@ -1,4 +1,4 @@
-import getElement from '../../src'
+import getElement from '../../lib'
 
 const test = document.createElement('p')
 test.setAttribute('id', 'test')

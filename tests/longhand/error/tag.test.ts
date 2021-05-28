@@ -1,4 +1,4 @@
-import getElement from '../../../src'
+import getElement from '../../../lib'
 
 it('should throw TypeError', () => {
   try {

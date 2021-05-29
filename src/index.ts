@@ -58,12 +58,15 @@ const getElement = (
           document.querySelector(element)
       }
   }
+
+  const elementName = name ?? 'Element'
+
   if (el === null || el === undefined) {
-    throw new TypeError(`${name || 'Element'} is ${el}`)
+    throw new TypeError(`${elementName} is ${el}`)
   } else {
     if (el instanceof HTMLCollection || el instanceof NodeList) {
       if (el.length === 0) {
-        throw new TypeError(`${name || 'Element'} is empty`)
+        throw new TypeError(`${elementName} is empty`)
       }
     }
     return el

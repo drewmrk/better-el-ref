@@ -2,14 +2,14 @@
  * A better way to reference HTML elements (better-el-ref)
  *
  * @param element - Element to be referenced
- * @param method - The method of referencing the element (id|tag|name|class)
  * @param name - Name of the element to be referenced
+ * @param method - The method of referencing the element (id|tag|name|class)
  *
  * @returns HTML element
  *
  * @example
  * import getElement from 'better-el-ref'
- * getElement('test-element', 'id', 'Paragraph test element')
+ * getElement('.test-element')
  */
 const getElement = (
   element: string,

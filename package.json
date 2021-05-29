@@ -1,6 +1,6 @@
 {
   "name": "better-el-ref",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A better way to reference HTML elements",
   "main": "lib/index.js",
   "author": "Drew Markel",

@@ -3,7 +3,6 @@
  *
  * @param element - Element to be referenced
  * @param name - Name of the element to be referenced
- * @param method - The method of referencing the element (id|tag|name|class)
  *
  * @returns HTML element
  *
@@ -11,13 +10,9 @@
  * import getElement from 'better-el-ref'
  * getElement('.test-element')
  */
-const getElement = (
-  element: string,
-  name?: string,
-  method?: 'id' | 'tag' | 'name' | 'class'
-) => {
+const getElement = (element: string, name?: string) => {
   const elementType = element[0]
-  !method && (element = element.substr(1))
+  element = element.substr(1)
 
   const methods = {
     id: document.getElementById(element),
@@ -27,36 +22,21 @@ const getElement = (
   }
 
   let el: any
-  switch (method) {
-    case 'id':
+  switch (elementType) {
+    case '#':
       el = methods.id
       break
-    case 'class':
+    case '.':
       el = methods.className
       break
-    case 'tag':
+    case '<':
       el = methods.tag
       break
-    case 'name':
+    case '$':
       el = methods.name
       break
     default:
-      switch (elementType) {
-        case '#':
-          el = methods.id
-          break
-        case '.':
-          el = methods.className
-          break
-        case '<':
-          el = methods.tag
-          break
-        case '$':
-          el = methods.name
-          break
-        default:
-          document.querySelector(element)
-      }
+      throw new Error('Missing first character method identifier')
   }
 
   const elementName = name ?? 'Element'

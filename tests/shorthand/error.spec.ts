@@ -39,3 +39,13 @@ it('should throw TypeError for Tag', () => {
     return undefined
   }
 })
+
+// Missing first character
+it('should throw Error for not having an identifying first character', () => {
+  try {
+    getElement('test').innerText = 'Test'
+    console.error('Test failed')
+  } catch (_) {
+    return undefined
+  }
+})

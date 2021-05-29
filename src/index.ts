@@ -13,8 +13,8 @@
  */
 const getElement = (
   element: string,
-  method?: 'id' | 'tag' | 'name' | 'class',
-  name?: string
+  name?: string,
+  method?: 'id' | 'tag' | 'name' | 'class'
 ) => {
   const elementType = element[0]
   !method && (element = element.substr(1))

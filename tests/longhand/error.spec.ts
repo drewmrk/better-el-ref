@@ -1,9 +1,11 @@
 import getElement from '../../lib'
 
+const u = undefined
+
 // ID
 it('should throw TypeError for ID', () => {
   try {
-    getElement('test', 'id').innerText = 'Test'
+    getElement('test', u, 'id').innerText = 'Test'
     console.error('Test failed')
   } catch (_) {
     return undefined
@@ -13,7 +15,7 @@ it('should throw TypeError for ID', () => {
 // Class
 it('should throw TypeError for Class', () => {
   try {
-    getElement('test', 'class').innerText = 'Test'
+    getElement('test', u, 'class').innerText = 'Test'
     console.error('Test failed')
   } catch (_) {
     return undefined
@@ -23,7 +25,7 @@ it('should throw TypeError for Class', () => {
 // Name
 it('should throw TypeError for Name', () => {
   try {
-    getElement('test', 'name').innerText = 'Test'
+    getElement('test', u, 'name').innerText = 'Test'
     console.error('Test failed')
   } catch (_) {
     return undefined
@@ -33,7 +35,7 @@ it('should throw TypeError for Name', () => {
 // Tag
 it('should throw TypeError for Tag', () => {
   try {
-    getElement('test', 'tag').innerText = 'Test'
+    getElement('test', u, 'tag').innerText = 'Test'
     console.error('Test failed')
   } catch (_) {
     return undefined

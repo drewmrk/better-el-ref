@@ -1,5 +1,7 @@
 import getElement from '../../lib'
 
+const u = undefined
+
 let test
 
 // ID
@@ -8,7 +10,7 @@ test.setAttribute('id', 'test')
 document.body.appendChild(test)
 
 it('should return p element with id of "test"', () => {
-  getElement('test', 'id').innerText = 'Test'
+  getElement('test', u, 'id').innerText = 'Test'
 })
 
 // Class
@@ -17,7 +19,7 @@ test.setAttribute('class', 'test')
 document.body.appendChild(test)
 
 it('should return collection of elements with class test"', () => {
-  getElement('test', 'class').innerText = 'Test'
+  getElement('test', u, 'class').innerText = 'Test'
 })
 
 // Name
@@ -26,7 +28,7 @@ test.name = 'test'
 document.body.appendChild(test)
 
 it('should return input element with name of "test"', () => {
-  getElement('test', 'name').innerText = 'Test'
+  getElement('test', u, 'name').innerText = 'Test'
 })
 
 // Tag
@@ -34,5 +36,5 @@ test = document.createElement('test')
 document.body.appendChild(test)
 
 it('should return "test" element', () => {
-  getElement('test', 'tag').innerText = 'Test'
+  getElement('test', u, 'tag').innerText = 'Test'
 })

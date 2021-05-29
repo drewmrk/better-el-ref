@@ -11,11 +11,7 @@ Consistently calling `document.getElementById('id')` is long and tedious and add
 ```js
 import getElement from 'better-el-ref'
 
-getElement(element, method?, name?)
-```
-
-```js
-import getElement from 'better-el-ref'
+getElement(element, name?, method?)
 
 /* Shorthand */
 getElement('#element') // ID
@@ -24,8 +20,10 @@ getElement('<element') // Tag
 getElement('$element') // Name
 
 /* Longhand */
-getElement('element', 'id')    // ID
-getElement('element', 'class') // Class
-getElement('element', 'tag')   // Tag
-getElement('element', 'name')  // Name
+const u = undefined
+
+getElement('element', u, 'id')    // ID
+getElement('element', u, 'class') // Class
+getElement('element', u, 'tag')   // Tag
+getElement('element', u, 'name')  // Name
 ```

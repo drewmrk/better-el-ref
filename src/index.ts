@@ -1,3 +1,4 @@
+import setClass from './setClass'
 import valueGuard from './valueGuard'
 
 /**
@@ -22,47 +23,31 @@ const getElement = (element: string, name?: string) => {
     const element = v.substr(1)
     const className = String(Math.random())
     const elementsLengthIsOne = elements.length === 1
-
-    let tempEl: any
+    const methods = {
+      id: document.getElementById(element),
+      class: document.getElementsByClassName(element),
+      tag: document.getElementsByTagName(element),
+      name: document.getElementsByName(element)
+    }
 
     switch (elementType) {
       case '#':
-        if (i === 0) {
-          el = document.getElementById(element)
-        } else {
-          tempEl = valueGuard(document.getElementById(element), name)[1]
-          tempEl.setAttribute('class', `${tempEl.classList} ${className}`)
-          el = el.getElementsByClassName(className)
-        }
+        i === 0 ? (el = methods.id) : (el = setClass(methods.id, className, el, name, true))
         break
       case '.':
-        if (i === 0) {
-          el = elementsLengthIsOne
-            ? document.getElementsByClassName(element)
-            : document.getElementsByClassName(element)[0]
-        } else {
-          tempEl = valueGuard(document.getElementsByClassName(element), name)[1][0]
-          tempEl.setAttribute('class', `${tempEl.classList} ${className}`)
-          el = el.getElementsByClassName(className)
-        }
+        i === 0
+          ? (el = elementsLengthIsOne ? methods.class : methods.class[0])
+          : (el = setClass(methods.class, className, el, name))
         break
       case '<':
-        if (i === 0) {
-          el = elementsLengthIsOne ? document.getElementsByTagName(element) : document.getElementsByTagName(element)[0]
-        } else {
-          tempEl = valueGuard(document.getElementsByTagName(element), name)[1][0]
-          tempEl.setAttribute('class', `${tempEl.classList} ${className}`)
-          el = el.getElementsByClassName(className)
-        }
+        i === 0
+          ? (el = elementsLengthIsOne ? methods.tag : methods.tag[0])
+          : (el = setClass(methods.tag, className, el, name))
         break
       case '$':
-        if (i === 0) {
-          el = elementsLengthIsOne ? document.getElementsByName(element) : document.getElementsByName(element)[0]
-        } else {
-          tempEl = valueGuard(document.getElementsByName(element), name)[1][0]
-          tempEl.setAttribute('class', `${tempEl.classList} ${className}`)
-          el = el.getElementsByClassName(className)
-        }
+        i === 0
+          ? (el = elementsLengthIsOne ? methods.name : methods.name[0])
+          : (el = setClass(methods.name, className, el, name))
         break
       default:
         throw new Error('Missing first character method identifier')

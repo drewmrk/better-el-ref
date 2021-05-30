@@ -1,4 +1,4 @@
-import getElement from '../../lib'
+import getElement from '../lib'
 
 let test
 

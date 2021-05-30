@@ -1,4 +1,4 @@
-import getElement from '../../lib'
+import getElement from '../lib'
 
 // ID
 it('should throw TypeError for ID', () => {
@@ -44,6 +44,16 @@ it('should throw TypeError for Tag', () => {
 it('should throw Error for not having an identifying first character', () => {
   try {
     getElement('test').innerText = 'Test'
+    console.error('Test failed')
+  } catch (_) {
+    return undefined
+  }
+})
+
+// Chaining
+it('should throw Error for incorrect chaining', () => {
+  try {
+    getElement('.test #test').innerText = 'Test'
     console.error('Test failed')
   } catch (_) {
     return undefined

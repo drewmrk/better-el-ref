@@ -18,4 +18,8 @@ getElement('#element') // ID
 getElement('.element') // Class
 getElement('<element') // Tag
 getElement('$element') // Name
+
+/* Chaining */
+getElement('#element .element') // Nested class
+getElement('#element <element') // Nested tag
 ```

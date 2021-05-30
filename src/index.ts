@@ -20,48 +20,46 @@ const getElement = (element: string, name?: string) => {
   elements.forEach((v, i) => {
     const elementType = v[0]
     const element = v.substr(1)
+    const className = String(Math.random())
+    const elementsLengthIsOne = elements.length === 1
+
+    let tempEl: any
 
     switch (elementType) {
       case '#':
         if (i === 0) {
           el = document.getElementById(element)
         } else {
-          const tempEl = valueGuard(document.getElementById(element), name)[1]
-          const className = String(Math.random())
+          tempEl = valueGuard(document.getElementById(element), name)[1]
           tempEl.setAttribute('class', `${tempEl.classList} ${className}`)
           el = el.getElementsByClassName(className)
         }
         break
       case '.':
         if (i === 0) {
-          el =
-            elements.length === 1
-              ? document.getElementsByClassName(element)
-              : document.getElementsByClassName(element)[0]
+          el = elementsLengthIsOne
+            ? document.getElementsByClassName(element)
+            : document.getElementsByClassName(element)[0]
         } else {
-          const tempEl = valueGuard(document.getElementsByClassName(element), name)[1][0]
-          const className = String(Math.random())
+          tempEl = valueGuard(document.getElementsByClassName(element), name)[1][0]
           tempEl.setAttribute('class', `${tempEl.classList} ${className}`)
           el = el.getElementsByClassName(className)
         }
         break
       case '<':
         if (i === 0) {
-          el =
-            elements.length === 1 ? document.getElementsByTagName(element) : document.getElementsByTagName(element)[0]
+          el = elementsLengthIsOne ? document.getElementsByTagName(element) : document.getElementsByTagName(element)[0]
         } else {
-          const tempEl = valueGuard(document.getElementsByTagName(element), name)[1][0]
-          const className = String(Math.random())
+          tempEl = valueGuard(document.getElementsByTagName(element), name)[1][0]
           tempEl.setAttribute('class', `${tempEl.classList} ${className}`)
           el = el.getElementsByClassName(className)
         }
         break
       case '$':
         if (i === 0) {
-          el = elements.length === 1 ? document.getElementsByName(element) : document.getElementsByName(element)[0]
+          el = elementsLengthIsOne ? document.getElementsByName(element) : document.getElementsByName(element)[0]
         } else {
-          const tempEl = valueGuard(document.getElementsByName(element), name)[1][0]
-          const className = String(Math.random())
+          tempEl = valueGuard(document.getElementsByName(element), name)[1][0]
           tempEl.setAttribute('class', `${tempEl.classList} ${className}`)
           el = el.getElementsByClassName(className)
         }

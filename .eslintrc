@@ -16,6 +16,7 @@
     "valid-jsdoc": "off",
     "comma-dangle": "off",
     "indent": "off",
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "max-len": ["warn", { "code": 120}]
   }
 }

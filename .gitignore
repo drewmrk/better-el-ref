@@ -106,3 +106,6 @@ lib
 
 # Artifacts
 .DS_Store
+
+# Playground
+playground/

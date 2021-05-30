@@ -1,10 +1,12 @@
+import valueGuard from './valueGuard'
+
 /**
  * A better way to reference HTML elements (better-el-ref)
  *
  * @param element - Element to be referenced
  * @param name - Name of the element to be referenced
  *
- * @returns HTML element
+ * @returns HTML (element | collection)
  *
  * @example
  * import getElement from 'better-el-ref'
@@ -13,88 +15,64 @@
 const getElement = (element: string, name?: string) => {
   let el: any
 
-  element = element.trim()
+  const elements = element.trim().split(' ')
 
-  if (element.includes(' ')) {
-    const elements = element.split(' ')
-
-    elements.forEach((v, i) => {
-      const elementTempType = v[0]
-      const elementTemp = v.substr(1)
-
-      if (i === 0) {
-        switch (elementTempType) {
-          case '#':
-            el = document.getElementById(elementTemp)
-            break
-          case '.':
-            throw new Error('Chaining class is not currently supported')
-          case '<':
-            throw new Error('Chaining a tag is not currently supported')
-          case '$':
-            throw new Error('Chaining a name is not currently supported')
-          default:
-            throw new Error('Missing first character method identifier')
-        }
-      } else {
-        switch (elementTempType) {
-          case '#':
-            throw new Error('Chaining an ID is not currently supported')
-          case '.':
-            el = el.getElementsByClassName(elementTemp)
-            break
-          case '<':
-            el = el.getElementsByTagName(elementTemp)
-            break
-          case '$':
-            throw new Error('Chaining a name is not currently supported')
-          default:
-            throw new Error('Missing first character method identifier')
-        }
-      }
-    })
-
-    return el
-  } else {
-    const elementType = element[0]
-    element = element.substr(1)
-
-    const methods = {
-      id: document.getElementById(element),
-      className: document.getElementsByClassName(element),
-      tag: document.getElementsByTagName(element),
-      name: document.getElementsByName(element)
-    }
+  elements.forEach((v, i) => {
+    const elementType = v[0]
+    const element = v.substr(1)
 
     switch (elementType) {
       case '#':
-        el = methods.id
+        if (i === 0) {
+          el = document.getElementById(element)
+        } else {
+          const tempEl = valueGuard(document.getElementById(element), name)[1]
+          const className = String(Math.random())
+          tempEl.setAttribute('class', `${tempEl.classList} ${className}`)
+          el = el.getElementsByClassName(className)
+        }
         break
       case '.':
-        el = methods.className
+        if (i === 0) {
+          el =
+            elements.length === 1
+              ? document.getElementsByClassName(element)
+              : document.getElementsByClassName(element)[0]
+        } else {
+          const tempEl = valueGuard(document.getElementsByClassName(element), name)[1][0]
+          const className = String(Math.random())
+          tempEl.setAttribute('class', `${tempEl.classList} ${className}`)
+          el = el.getElementsByClassName(className)
+        }
         break
       case '<':
-        el = methods.tag
+        if (i === 0) {
+          el =
+            elements.length === 1 ? document.getElementsByTagName(element) : document.getElementsByTagName(element)[0]
+        } else {
+          const tempEl = valueGuard(document.getElementsByTagName(element), name)[1][0]
+          const className = String(Math.random())
+          tempEl.setAttribute('class', `${tempEl.classList} ${className}`)
+          el = el.getElementsByClassName(className)
+        }
         break
       case '$':
-        el = methods.name
+        if (i === 0) {
+          el = elements.length === 1 ? document.getElementsByName(element) : document.getElementsByName(element)[0]
+        } else {
+          const tempEl = valueGuard(document.getElementsByName(element), name)[1][0]
+          const className = String(Math.random())
+          tempEl.setAttribute('class', `${tempEl.classList} ${className}`)
+          el = el.getElementsByClassName(className)
+        }
         break
       default:
         throw new Error('Missing first character method identifier')
     }
+  })
 
-    const elementName = name ?? 'Element'
-
-    if (el === null || el === undefined) {
-      throw new TypeError(`${elementName} is ${el}`)
-    } else {
-      if (el instanceof HTMLCollection || el instanceof NodeList) {
-        if (el.length === 0) {
-          throw new TypeError(`${elementName} is empty`)
-        }
-      }
-      return el
-    }
+  if (valueGuard(el, name)[0]) {
+    return el
   }
 }
 

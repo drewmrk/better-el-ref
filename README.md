@@ -8,6 +8,8 @@ Consistently calling `document.getElementById('id')` is long and tedious and add
 
 ## Usage/Examples
 
+At the moment, the ability of chaining is limited to a depth of one.
+
 ```js
 import getElement from 'better-el-ref'
 
@@ -21,5 +23,5 @@ getElement('$element') // Name
 
 /* Chaining */
 getElement('#element .element') // Nested class
-getElement('#element <element') // Nested tag
+getElement('$element <element') // Nested tag
 ```

@@ -52,6 +52,6 @@ it('should return input element with name of "test" (id -> name)', () => {
 })
 
 //
-it('should return p element with class of "multi-class" (id (depth of 12) -> class)', () => {
+it('should return p element with class of "test-class" (id (depth of 12) -> class)', () => {
   getElement('#test <test #test-1 #test-2 #test-3 #test-4 #test-5 #test-6 #test-7 #test-8 #test-9 #test-10 .test-class')
 })

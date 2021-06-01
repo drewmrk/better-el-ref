@@ -2,6 +2,8 @@
 
 A better way to reference HTML elements in JavaScript.
 
+![npm](https://img.shields.io/npm/v/better-el-ref?style=flat-square) ![npm](https://img.shields.io/npm/dt/better-el-ref?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/better-el-ref?style=flat-square) ![NPM](https://img.shields.io/npm/l/better-el-ref?style=flat-square) ![npm type definitions](https://img.shields.io/npm/types/better-el-ref?style=flat-square) ![Dependents (via libraries.io)](https://img.shields.io/librariesio/dependents/npm/better-el-ref?style=flat-square)
+
 ## Reasoning
 
 Consistently calling `document.getElementById('id')` is long and tedious and adds unnecessary length to code. Not to mention, the usage of `document.querySelector('el')` is notoriously slow and so by using the `better-el-ref` package, referencing HTML elements is easy and optimized. `better-el-ref` also provides a nice way to handle elements that do not exist or are empty which keeps code DRY, especially when using TypeScript.

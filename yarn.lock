@@ -30,7 +30,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.14.3, @babel/core@npm:^7.1.0, @babel/core@npm:^7.14.3, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5":
+"@babel/core@npm:7.14.3, @babel/core@npm:^7.1.0, @babel/core@npm:^7.7.2, @babel/core@npm:^7.7.5":
   version: 7.14.3
   resolution: "@babel/core@npm:7.14.3"
   dependencies:
@@ -1687,7 +1687,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^15.6.1":
+"@types/node@npm:*, @types/node@npm:15.6.1":
   version: 15.6.1
   resolution: "@types/node@npm:15.6.1"
   checksum: 8ed16d4f7404203d3aade0b73e58c969fab4a721cfe637eff9b739f6b25a35e33dfe9e0961b9ac5994d629302faa977f8ee8931d09187a136875f966332cc552
@@ -2204,16 +2204,16 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "better-el-ref@workspace:."
   dependencies:
-    "@babel/core": ^7.14.3
+    "@babel/core": 7.14.3
     "@babel/preset-env": 7.14.4
     "@types/jest": 26.0.23
-    "@types/node": ^15.6.1
+    "@types/node": 15.6.1
     "@typescript-eslint/eslint-plugin": 4.25.0
     "@typescript-eslint/parser": 4.25.0
     eslint: 7.27.0
     eslint-config-google: 0.14.0
     jest: 27.0.3
-    jest-environment-jsdom: ^27.0.3
+    jest-environment-jsdom: 27.0.3
     ts-jest: 27.0.2
     ts-node: 10.0.0
     typescript: 4.3.2
@@ -3779,7 +3779,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"jest-environment-jsdom@npm:^27.0.3":
+"jest-environment-jsdom@npm:27.0.3, jest-environment-jsdom@npm:^27.0.3":
   version: 27.0.3
   resolution: "jest-environment-jsdom@npm:27.0.3"
   dependencies:

@@ -1,3 +1,10 @@
+/**
+ * Check to make sure an element is not null, undefined, or empty (better-el-ref)
+ *
+ * @param el - Element to be referenced
+ * @param name - Name of element to be referenced
+ * @returns Element
+ */
 const valueGuard = (el: any, name?: string) => {
   const elementName = name ?? 'Element'
 
@@ -9,7 +16,7 @@ const valueGuard = (el: any, name?: string) => {
         throw new Error(`${elementName} is empty`)
       }
     }
-    return [true, el]
+    return el
   }
 }
 

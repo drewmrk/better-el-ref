@@ -36,22 +36,24 @@ container.innerHTML += `
 document.body.appendChild(container)
 
 it('should return p element with id of "test-sub" (id -> id)', () => {
-  getElement('#test #test-sub')
+  getElement('#test #test-sub').innerText = 'Test'
 })
 
 it('should return p element with class of "test-sub" (id -> class)', () => {
-  getElement('#test .test-sub')
+  getElement('#test .test-sub').innerText = 'Test'
 })
 
 it('should return element with tag of "test" (id -> tag)', () => {
-  getElement('#test <test')
+  getElement('#test <test').innerText = 'Test'
 })
 
 it('should return input element with name of "test" (id -> name)', () => {
-  getElement('#test $test')
+  getElement('#test $test').innerText = 'Test'
 })
 
 //
 it('should return p element with class of "test-class" (id (depth of 12) -> class)', () => {
-  getElement('#test <test #test-1 #test-2 #test-3 #test-4 #test-5 #test-6 #test-7 #test-8 #test-9 #test-10 .test-class')
+  getElement(
+    '#test <test #test-1 #test-2 #test-3 #test-4 #test-5 #test-6 #test-7 #test-8 #test-9 #test-10 .test-class'
+  ).innerText = 'Test'
 })

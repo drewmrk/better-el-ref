@@ -1,4 +1,4 @@
-import setClass from './setClass'
+import chainEl from './chainEl'
 import valueGuard from './valueGuard'
 
 /**
@@ -32,31 +32,29 @@ const getElement = (element: string, name?: string) => {
 
     switch (elementType) {
       case '#':
-        i === 0 ? (el = methods.id) : (el = setClass(methods.id, className, el, name, true))
+        i === 0 ? (el = methods.id) : (el = chainEl(methods.id, className, el, name, true))
         break
       case '.':
         i === 0
           ? (el = elementsLengthIsOne ? methods.class : methods.class[0])
-          : (el = setClass(methods.class, className, el, name))
+          : (el = chainEl(methods.class, className, el, name))
         break
       case '<':
         i === 0
           ? (el = elementsLengthIsOne ? methods.tag : methods.tag[0])
-          : (el = setClass(methods.tag, className, el, name))
+          : (el = chainEl(methods.tag, className, el, name))
         break
       case '$':
         i === 0
           ? (el = elementsLengthIsOne ? methods.name : methods.name[0])
-          : (el = setClass(methods.name, className, el, name))
+          : (el = chainEl(methods.name, className, el, name))
         break
       default:
         throw new Error('Missing first character method identifier')
     }
   })
 
-  if (valueGuard(el, name)[0]) {
-    return el
-  }
+  return valueGuard(el, name)
 }
 
 export default getElement

@@ -5,15 +5,13 @@
  * @param name - Name of element to be referenced
  * @returns Element
  */
-const valueGuard = (el: any, name?: string) => {
-  const elementName = name ?? 'Element'
-
+const valueGuard = (el: any, name: string) => {
   if (el === null || el === undefined) {
-    throw new Error(`${elementName} is ${el}`)
+    throw new Error(`${name} is ${el}`)
   } else {
     if (el instanceof HTMLCollection || el instanceof NodeList) {
       if (el.length === 0) {
-        throw new Error(`${elementName} is empty`)
+        throw new Error(`${name} is empty`)
       }
     }
     return el

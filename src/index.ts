@@ -5,7 +5,6 @@ import valueGuard from './valueGuard'
  * A better way to reference HTML elements (better-el-ref)
  *
  * @param element - Element to be referenced
- * @param name - Name of the element to be referenced
  *
  * @returns HTML (element | collection)
  *
@@ -13,7 +12,7 @@ import valueGuard from './valueGuard'
  * import getElement from 'better-el-ref'
  * getElement('.test-element')
  */
-const getElement = (element: string, name?: string) => {
+const getElement = (element: string) => {
   let el: any
 
   const elements = element.trim().split(' ')
@@ -32,29 +31,29 @@ const getElement = (element: string, name?: string) => {
 
     switch (elementType) {
       case '#':
-        i === 0 ? (el = methods.id) : (el = chainEl(methods.id, className, el, name, true))
+        i === 0 ? (el = methods.id) : (el = chainEl(methods.id, className, el, element, true))
         break
       case '.':
         i === 0
           ? (el = elementsLengthIsOne ? methods.class : methods.class[0])
-          : (el = chainEl(methods.class, className, el, name))
+          : (el = chainEl(methods.class, className, el, element))
         break
       case '<':
         i === 0
           ? (el = elementsLengthIsOne ? methods.tag : methods.tag[0])
-          : (el = chainEl(methods.tag, className, el, name))
+          : (el = chainEl(methods.tag, className, el, element))
         break
       case '$':
         i === 0
           ? (el = elementsLengthIsOne ? methods.name : methods.name[0])
-          : (el = chainEl(methods.name, className, el, name))
+          : (el = chainEl(methods.name, className, el, element))
         break
       default:
-        throw new Error('Missing first character method identifier')
+        throw new Error(`Missing element ${i + 1} method identifier`)
     }
   })
 
-  return valueGuard(el, name)
+  return valueGuard(el, element)
 }
 
 export default getElement

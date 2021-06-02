@@ -14,7 +14,7 @@ jobs:
            pkg-manager: yarn 
       - run:
           name: Build and run tests
-          command: yarn build && yarn test
+          command: yarn build
 
 workflows:
   build-and-test: 

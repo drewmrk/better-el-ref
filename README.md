@@ -2,7 +2,7 @@
 
 A better way to reference HTML elements in JavaScript.
 
-![npm](https://img.shields.io/npm/v/better-el-ref?style=flat-square) ![npm](https://img.shields.io/npm/dt/better-el-ref?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/better-el-ref?style=flat-square) ![NPM](https://img.shields.io/npm/l/better-el-ref?style=flat-square) ![npm type definitions](https://img.shields.io/npm/types/better-el-ref?style=flat-square) ![Dependents (via libraries.io)](https://img.shields.io/librariesio/dependents/npm/better-el-ref?style=flat-square)
+![CircleCI](https://img.shields.io/circleci/build/github/drewmrk/better-el-ref?style=flat-square) ![npm](https://img.shields.io/npm/v/better-el-ref?style=flat-square) ![npm](https://img.shields.io/npm/dt/better-el-ref?style=flat-square) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/better-el-ref?style=flat-square) ![NPM](https://img.shields.io/npm/l/better-el-ref?style=flat-square) ![npm type definitions](https://img.shields.io/npm/types/better-el-ref?style=flat-square) ![Dependents (via libraries.io)](https://img.shields.io/librariesio/dependents/npm/better-el-ref?style=flat-square)
 
 ## Reasoning
 

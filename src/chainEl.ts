@@ -1,3 +1,4 @@
+import ExtendedArray from './ExtendedArray'
 import valueGuard from './valueGuard'
 
 /**
@@ -10,10 +11,14 @@ import valueGuard from './valueGuard'
  * @param id - Check if element referenced is an id
  * @returns Chained element
  */
-const chainEl = (method: any, className: string, el: any, name: string, id?: boolean) => {
+const chainEl = (method: any, className: string, el: any, name: string, index: number, len: number, id?: boolean) => {
   const tempEl = id ? valueGuard(method, name) : valueGuard(method, name)[0]
   tempEl.setAttribute('class', `${tempEl.classList} ${className}`)
-  return el.getElementsByClassName(className)[0]
+  if (index + 1 === len) {
+    return new ExtendedArray(el.getElementsByClassName(className))
+  } else {
+    return el.getElementsByClassName(className)[0]
+  }
 }
 
 export default chainEl

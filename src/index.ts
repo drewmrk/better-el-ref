@@ -1,4 +1,5 @@
 import chainEl from './chainEl'
+import ExtendedArray from './ExtendedArray'
 import valueGuard from './valueGuard'
 
 /**
@@ -31,29 +32,35 @@ const getElement = (element: string) => {
 
     switch (elementType) {
       case '#':
-        i === 0 ? (el = methods.id) : (el = chainEl(methods.id, className, el, element, true))
+        i === 0 ? (el = methods.id) : (el = chainEl(methods.id, className, el, element, i, elements.length, true))
         break
       case '.':
         i === 0
           ? (el = elementsLengthIsOne ? methods.class : methods.class[0])
-          : (el = chainEl(methods.class, className, el, element))
+          : (el = chainEl(methods.class, className, el, element, i, elements.length))
         break
       case '<':
         i === 0
           ? (el = elementsLengthIsOne ? methods.tag : methods.tag[0])
-          : (el = chainEl(methods.tag, className, el, element))
+          : (el = chainEl(methods.tag, className, el, element, i, elements.length))
         break
       case '$':
         i === 0
           ? (el = elementsLengthIsOne ? methods.name : methods.name[0])
-          : (el = chainEl(methods.name, className, el, element))
+          : (el = chainEl(methods.name, className, el, element, i, elements.length))
         break
       default:
         throw new Error(`Missing element ${i + 1} method identifier`)
     }
   })
 
-  return valueGuard(el, element)
+  const newArray = new ExtendedArray(el as any)
+
+  if (el instanceof HTMLCollection || el instanceof NodeList) {
+    return newArray
+  } else {
+    return valueGuard(el, element)
+  }
 }
 
 export default getElement

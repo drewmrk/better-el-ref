@@ -1,4 +1,4 @@
-import getElement from '../../lib'
+import getElement from '../../src'
 
 const container = document.createElement('div')
 container.innerHTML += `
@@ -12,17 +12,17 @@ container.innerHTML += `
 document.body.appendChild(container)
 
 it('should return p element with id of "test" (class -> id)', () => {
-  getElement('.test #test').innerText = 'Test'
+  getElement('.test #test').innerHTML('Test')
 })
 
 it('should return p element with class of "test" (class -> class)', () => {
-  getElement('.test .test-sub').innerText = 'Test'
+  getElement('.test .test-sub').innerHTML('Test')
 })
 
 it('should return element with tag of "test" (class -> tag)', () => {
-  getElement('.test <test').innerText = 'Test'
+  getElement('.test <test').innerHTML('Test')
 })
 
 it('should return input element with name of "test" (class -> name)', () => {
-  getElement('.test $test').innerText = 'Test'
+  getElement('.test $test').innerHTML('Test')
 })

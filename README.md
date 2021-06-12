@@ -59,4 +59,7 @@ getElement('$element') // Name
 getElement('#element-1 .element-1') // Nested class
 getElement('$element-1 <elementT') // Nested tag
 getElement('#test <test #test-1 #test-2 #test-3 #test-4 .test-class') // Nested class
+
+/* Applying operations */
+getElement('.test').innerHTML(`<img src="test" />`, 'a') // Append an `img` element to all elements with class of "test"
 ```

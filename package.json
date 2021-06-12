@@ -1,6 +1,6 @@
 {
   "name": "better-el-ref",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "A better way to reference HTML elements",
   "main": "lib/index.js",
   "author": "Drew Markel",
@@ -33,7 +33,7 @@
   "scripts": {
     "build": "yarn clean && tsc && yarn test",
     "clean": "rm -rf lib",
-    "test": "jest"
+    "test": "jest --maxWorkers=100%"
   },
   "files": [
     "lib/**/*",

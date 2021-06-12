@@ -1,4 +1,4 @@
-import getElement from '../../lib'
+import getElement from '../../src'
 
 const container = document.createElement('div')
 container.innerHTML += `
@@ -36,24 +36,24 @@ container.innerHTML += `
 document.body.appendChild(container)
 
 it('should return p element with id of "test-sub" (id -> id)', () => {
-  getElement('#test #test-sub').innerText = 'Test'
+  getElement('#test #test-sub').innerHTML('Test')
 })
 
 it('should return p element with class of "test-sub" (id -> class)', () => {
-  getElement('#test .test-sub').innerText = 'Test'
+  getElement('#test .test-sub').innerHTML('Test')
 })
 
 it('should return element with tag of "test" (id -> tag)', () => {
-  getElement('#test <test').innerText = 'Test'
+  getElement('#test <test').innerHTML('Test')
 })
 
 it('should return input element with name of "test" (id -> name)', () => {
-  getElement('#test $test').innerText = 'Test'
+  getElement('#test $test').innerHTML('Test')
 })
 
-//
+/*
 it('should return p element with class of "test-class" (id (depth of 12) -> class)', () => {
   getElement(
     '#test <test #test-1 #test-2 #test-3 #test-4 #test-5 #test-6 #test-7 #test-8 #test-9 #test-10 .test-class'
-  ).innerText = 'Test'
-})
+  ).innerHTML('Test')
+})*/

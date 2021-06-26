@@ -15,12 +15,11 @@ it('should return p element with id of "test" (class -> id)', () => {
   getElement('.test #test').innerHTML('Test')
 })
 
-it('should return p element with class of "test" (class -> class)', () => {
+it('should set p element with class of "test" (class -> class)', () => {
   getElement('.test .test-sub').innerHTML('Test')
   Array.from(document.getElementsByClassName('test-sub')).forEach(i => {
     if (i.innerHTML !== 'Test') {
-      console.error(i.innerHTML)
-      throw Error()
+      throw Error(`${console.error(i.innerHTML)}`)
     }
   })
 })

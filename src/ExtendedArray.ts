@@ -1,12 +1,14 @@
 /**
- * T
+ * Extended class (extends `Array`) for better manipulation of HTML elements
  */
 class HTMLElements extends Array<HTMLCollection> {
   /**
    * `innerHTML`
-   * @param content
-   * @param append
-   * @returns
+   *
+   * @param content - Content
+   * @param append - Option to append `content`
+   *
+   * @returns Array containing `innerHTML` data for elements in the array
    */
   innerHTML(content?: any, append?: 'a') {
     const data: any[] = []
@@ -26,10 +28,12 @@ class HTMLElements extends Array<HTMLCollection> {
   }
 
   /**
+   * `textContent`
    *
-   * @param content
-   * @param append
-   * @returns
+   * @param content - Content
+   * @param append - Option to append `content`
+   *
+   * @returns Array containing `textContent` data for elements in the array
    */
   textContent(content?: any, append?: 'a') {
     const data: any[] = []

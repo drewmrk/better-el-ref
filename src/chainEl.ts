@@ -12,7 +12,11 @@ import valueGuard from './valueGuard'
  * @returns Chained element
  */
 const chainEl = (
-  method: any,
+  method:
+    | HTMLElement
+    | HTMLCollectionOf<Element>
+    | NodeListOf<HTMLElement>
+    | null,
   className: string,
   el: any,
   name: string,

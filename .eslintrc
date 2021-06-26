@@ -17,6 +17,6 @@
     "comma-dangle": "off",
     "indent": "off",
     "operator-linebreak": "off",
-    "max-len": ["warn", { "code": 120}]
+    "max-len": ["warn", { "code": 80}]
   }
 }

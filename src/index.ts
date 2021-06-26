@@ -30,24 +30,35 @@ const getElement = (element: string) => {
       name: document.getElementsByName(element)
     }
 
+    const configureChainEl = (
+      method:
+        | HTMLElement
+        | HTMLCollectionOf<Element>
+        | NodeListOf<HTMLElement>
+        | null,
+      id?: boolean
+    ) => {
+      return chainEl(method, className, el, element, i, elements.length, id)
+    }
+
     switch (elementType) {
       case '#':
-        i === 0 ? (el = methods.id) : (el = chainEl(methods.id, className, el, element, i, elements.length, true))
+        i === 0 ? (el = methods.id) : (el = configureChainEl(methods.id, true))
         break
       case '.':
         i === 0
           ? (el = elementsLengthIsOne ? methods.class : methods.class[0])
-          : (el = chainEl(methods.class, className, el, element, i, elements.length))
+          : (el = configureChainEl(methods.class))
         break
       case '<':
         i === 0
           ? (el = elementsLengthIsOne ? methods.tag : methods.tag[0])
-          : (el = chainEl(methods.tag, className, el, element, i, elements.length))
+          : (el = configureChainEl(methods.tag))
         break
       case '$':
         i === 0
           ? (el = elementsLengthIsOne ? methods.name : methods.name[0])
-          : (el = chainEl(methods.name, className, el, element, i, elements.length))
+          : (el = configureChainEl(methods.name))
         break
       default:
         throw new Error(`Missing element ${i + 1} method identifier`)

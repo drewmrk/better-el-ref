@@ -11,7 +11,15 @@ import valueGuard from './valueGuard'
  * @param id - Check if element referenced is an id
  * @returns Chained element
  */
-const chainEl = (method: any, className: string, el: any, name: string, index: number, len: number, id?: boolean) => {
+const chainEl = (
+  method: any,
+  className: string,
+  el: any,
+  name: string,
+  index: number,
+  len: number,
+  id?: boolean
+) => {
   const tempEl = id ? valueGuard(method, name) : valueGuard(method, name)[0]
   tempEl.setAttribute('class', `${tempEl.classList} ${className}`)
   if (index + 1 === len) {

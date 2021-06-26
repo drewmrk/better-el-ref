@@ -1,5 +1,5 @@
 /**
- * Check to make sure an element is not null, undefined, or empty (better-el-ref)
+ * Check to make sure an element is not null, undefined, or empty
  *
  * @param el - Element to be referenced
  * @param name - Name of element to be referenced

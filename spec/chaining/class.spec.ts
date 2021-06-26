@@ -4,7 +4,7 @@ const container = document.createElement('div')
 container.innerHTML += `
   <div class="test">
     <p id="test"></p>
-    <p class="test-sub"></p>
+    <p class="test-sub">T</p>
     <test></test>
     <input name="test" />
   </div>
@@ -17,6 +17,12 @@ it('should return p element with id of "test" (class -> id)', () => {
 
 it('should return p element with class of "test" (class -> class)', () => {
   getElement('.test .test-sub').innerHTML('Test')
+  Array.from(document.getElementsByClassName('test-sub')).forEach(i => {
+    if (i.innerHTML !== 'Test') {
+      console.error(i.innerHTML)
+      throw Error()
+    }
+  })
 })
 
 it('should return element with tag of "test" (class -> tag)', () => {

@@ -1,20 +1,52 @@
-class ExtendedArray {
-  content: any
+/**
+ * T
+ */
+class HTMLElements extends Array<HTMLCollection> {
+  /**
+   * `innerHTML`
+   * @param content
+   * @param append
+   * @returns
+   */
+  innerHTML(content?: any, append?: 'a') {
+    const data: any[] = []
+    this.forEach((htmlCollection: HTMLCollection) => {
+      ;[...htmlCollection].forEach((el: Element) => {
+        content
+          ? append === 'a'
+            ? (el.innerHTML += content)
+            : (el.innerHTML = content)
+          : data.push(el.innerHTML)
+      })
+    })
 
-  constructor(content: any) {
-    this.content = content
+    if (!content) {
+      return data
+    }
   }
 
   /**
-   * `innerHTML`
-   * @param HTMLContent - Content to be used
-   * @param append - Whether or not to append, or replace content
+   *
+   * @param content
+   * @param append
+   * @returns
    */
-  innerHTML(HTMLContent: any, append?: 'a') {
-    [...this.content].forEach((i: HTMLElement) => {
-      append === 'a' ? i.innerHTML += HTMLContent : i.innerHTML = HTMLContent
+  textContent(content?: any, append?: 'a') {
+    const data: any[] = []
+    this.forEach((htmlCollection: HTMLCollection) => {
+      ;[...htmlCollection].forEach((el: Element) => {
+        content
+          ? append === 'a'
+            ? (el.textContent += content)
+            : (el.textContent = content)
+          : data.push(el.textContent)
+      })
     })
+
+    if (!content) {
+      return data
+    }
   }
 }
 
-export default ExtendedArray
+export default HTMLElements
